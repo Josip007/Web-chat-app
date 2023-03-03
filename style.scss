@@ -1,0 +1,94 @@
+
+$backgroundColor: rgb(179, 228, 239);
+@mixin focus {
+    outline: none;
+    background-color: rgb(111, 189, 213);
+    box-shadow: 5px 5px 5px 5px #a8cbe0;
+}
+
+@mixin input {
+    background-color: rgba(77, 203, 232, 0.657);
+    padding: 12px 18px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: text;
+    margin: 5px;
+    width: 100%;
+    display: inline-block;    
+}
+
+@mixin button {
+    background-color: rgba(71, 152, 189, 0.657);
+    border: 1px solid black;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: $backgroundColor;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 250px;
+}
+
+#name {
+    @include input;
+}
+
+#name:focus {
+    @include focus;
+}
+
+#nameButton {
+    @include button;
+    box-shadow: 1px 1px;
+}
+
+#message-input {
+    width: 80vw;
+    position: sticky;
+    top: 0;
+}
+
+#message-input__message {
+    @include input;
+}
+
+#message-input__message:focus {
+    @include focus;
+}
+
+#message-input__send {
+    @include button;
+}
+
+::placeholder {
+    color: rgb(19, 121, 130);
+    opacity: 0.6;
+}
+
+button:focus {
+    @include focus;
+}
+
+@media only screen and (max-width: 620px) {
+    #name {
+        width: 60%;
+    }
+    #nameButton {
+        position: relative;
+        left: 85px;
+    }
+    #message-input__message {
+        width: 60%;
+    }
+    #message-input__send {
+        position: absolute;
+        left: 10px;
+        top: 70px;
+    }
+}
