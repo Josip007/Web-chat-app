@@ -8,6 +8,10 @@ const nameButton = document.getElementById('nameButton');
 const message = document.getElementById('message-input');
 const nameDiv = document.getElementById('yourname');
 
+window.onload = function () {
+    nameInput.focus();
+}
+
 const drone = new Scaledrone('28YYwHeJZQFVMpSQ');
 drone.on('open', error => {
     console.log('connected');
@@ -37,6 +41,8 @@ room.on('open', error => {
 room.on('message', message => {
     const messageText = message.data;
     messageOutputText.innerHTML += `<br><br><span style="color:${color}"><br>${messageText}</span>`;
+    messageOutputText.style.width = '80vw';
+    messageOutputText.style.wordBreak = 'break-word';
   });
 
   function randomColor() {
@@ -67,7 +73,7 @@ nameInput.addEventListener('keydown', (e) => {
         if(nameInput.value === '') {
             alert('Enter your name!');
         } else {
-        messageInputLabel.innerHTML = `<span style="color:${color}">${nameInput.value}'s message:</span>`;
+        messageInputLabel.innerHTML = `<span style="color:${color}; background-color: lightblue">${nameInput.value}'s message:</span>`;
         message.style.display = 'block';
         nameDiv.style.display = 'none';
         messageInput.focus();
@@ -87,12 +93,15 @@ formElement.addEventListener('submit', (event) => {
     
     messageOutput.style.border = '1px solid black';
     messageOutput.style.borderRadius = '10px';
-    window.scrollTo(0, document.body.scrollHeight);
     messageInput.value = '';
     nameInput.focus();
     }
 });
 
-window.onload = function () {
-    nameInput.focus();
-}
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'i') {
+        e.preventDefault();
+        messageInput.focus();
+        nameInput.focus();
+    }
+});

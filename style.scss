@@ -32,7 +32,7 @@ body {
     display: grid;
     justify-content: center;
     align-items: center;
-    margin-bottom: 250px;
+    //margin-bottom: 250px;
 }
 
 #name {
@@ -64,6 +64,7 @@ body {
 
 #message-input__send {
     @include button;
+    opacity: 1;
 }
 
 ::placeholder {
@@ -90,5 +91,15 @@ button:focus {
         position: absolute;
         left: 10px;
         top: 70px;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    body {
+        display: flex;
+        flex-direction: column;
     }
 }

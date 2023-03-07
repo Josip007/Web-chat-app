@@ -28,5 +28,18 @@
     </div>
 
     <script src="index.js"></script>
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $("html, body").animate({
+                    scrollTop: $(
+                      'html, body').get(0).scrollHeight
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 </html>
