@@ -76,6 +76,7 @@ button:focus {
     @include focus;
 }
 
+
 @media only screen and (max-width: 620px) {
     #name {
         width: 60%;

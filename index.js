@@ -95,6 +95,13 @@ formElement.addEventListener('submit', (event) => {
     messageOutput.style.borderRadius = '10px';
     messageInput.value = '';
     nameInput.focus();
+    setTimeout(() => {
+        window.scrollBy(0, 500);
+    }, 1000)
+    //messageOutputText.scrollIntoView({block: 'end'});
+    /* requestAnimationFrame(() => {
+        messageOutput.scrollIntoView(false);
+      }); */
     }
 });
 
@@ -105,3 +112,4 @@ document.addEventListener('keydown', (e) => {
         nameInput.focus();
     }
 });
+
